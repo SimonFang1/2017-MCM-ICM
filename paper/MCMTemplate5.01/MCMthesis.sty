@@ -20,7 +20,7 @@
 \RequirePackage{amsmath,bm}              % AMSLaTeX
 \RequirePackage{amssymb,mathrsfs}        % AMSLaTeX sym-bols
 \RequirePackage{latexsym}
- 
+
 \RequirePackage{longtable,multirow,hhline,tabularx,array}       %@@表格相关
 \RequirePackage{flafter}
 \RequirePackage{pifont,calc}
@@ -102,25 +102,25 @@
   \makesheet%
   \fi
   \newpage
-  \null
-  \vskip 2em%
-  \begin{center}%
-  \let \footnote \thanks
-    {\LARGE \@title \par}%
-    \vskip 1.5em%
-    {\large
-      \lineskip .5em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-    \vskip 1em%
-    {\large \@date}%
-  \end{center}%
-  \par
-  \vskip 1.5em%
-  \if@abstract%
-  \make@abstract%
-  \fi%
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+%  \let \footnote \thanks
+%    {\LARGE \@title \par}%
+%    \vskip 1.5em%
+%    {\large
+%      \lineskip .5em%
+%      \begin{tabular}[t]{c}%
+%        \@author
+%      \end{tabular}\par}%
+%    \vskip 1em%
+%    {\large \@date}%
+%  \end{center}%
+%  \par
+%  \vskip 1.5em%
+%  \if@abstract%
+%  \make@abstract%
+%  \fi%
 }
 \def\keywordsname{\bf Key Words:}
 \def\@abstract{}%
@@ -209,9 +209,9 @@
     \begin{minipage}{0.33\textwidth}
     \centering
     Team Control Number\\[10pt]
-    {\fontsize{38pt}{25pt}\selectfont  \textbf{\MCM@control} }\normalsize\\[10pt]
+    {\fontsize{24pt}{25pt}\selectfont  \color{red}{\textbf{\MCM@control}} }\normalsize\\[10pt]
     Problem Chosen\\[10pt]
-    {\fontsize{20pt}{\baselineskip}\selectfont \textbf{\@problem}}\normalsize\\
+    {\fontsize{20pt}{\baselineskip}\selectfont \color{red}{\textbf{\@problem}}} \normalsize\\
     \end{minipage}\hspace{\fill}
     \begin{tabularx}{0.28\textwidth}{lX}%
     \multicolumn{2}{l}{For office use only}\\
@@ -223,15 +223,20 @@
 
 %\vspace*{-1em}
 \noindent\rule{\textwidth}{0.5pt}%
- 
+
 \begin{center}
   \textbf{\the\year\  Mathematical Contest in Modeling (MCM) Summary Sheet}\\
 (Attach a copy of this page to each copy of your solution paper.)
 \end{center}
+\endgroup
 \par%
 \vskip 1.5em%
-\centerline{\large\bf\abstractname}
-\noindent\usebox\@abstract%
-\endgroup}
+%\centerline{\large\bf\abstractname}
+%\noindent\usebox\@abstract%
+\input{abstract.tex}
+  \if@abstract%
+  \make@abstract%
+  \fi%
+}
 
 \endinput
